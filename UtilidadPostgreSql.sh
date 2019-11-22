@@ -1,14 +1,13 @@
 #!/bin/bash
-#Programa para posgres
 opcion=0
 fechaActual=$(date +%Y%m%d)
-#area de funciones
+
 
 #funcion de instalar
 instalar_postgress () {
     echo -e "\n Verificando Instalacion de PostgtreSQL"
- verif=$(which psql) #va a buscar si se encuentra psql en las varaibles de entorno
-     if [ $? -eq 0 ]; then # verifica el parametro de si encontro la variable o no 
+ verif=$(which psql)
+     if [ $? -eq 0 ]; then 
             echo -e "Se encuentra instalado postgreSQL"
     else  
       read  -s -p "Ingresa la password de SUDO:" password
@@ -92,7 +91,6 @@ restore_postgress () {
 
 while :
 do
-#Lmpiar Pantalla
 clear
 #Deplegar el menu
 echo "*******************************************"
@@ -107,9 +105,8 @@ echo "4. Restaurar el respaldo"
 echo "5. Salir de programa"
 echo "*******************************************"
 
-#leer 
 read -e -n1 -p  "Ingresa la opcion deseada 1 a 5:"  opcion
-#validar
+
 case $opcion in
 1) 
     instalar_postgress
